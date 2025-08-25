@@ -1,14 +1,12 @@
-import { useState } from 'react'
-import Form from '../components/Form'
 import { useClerk, useSignUp } from "@clerk/clerk-expo";
-import { EnvironmentResource, SignInFirstFactor } from "@clerk/types";
-import OAuthButtonRow from "../components/OAuthButtonRow";
-import Input from '../components/Input';
+import { EnvironmentResource } from "@clerk/types";
+import * as Haptics from 'expo-haptics';
+import { useState } from 'react';
 import ContinueButton from '../components/ContinueButton';
-import { TouchableOpacity } from 'react-native';
-import { Text, StyleSheet } from 'react-native';
 import ErrorText from '../components/ErrorText';
-import FormDivider from '../components/FormDivider';
+import Form from '../components/Form';
+import Input from '../components/Input';
+import OAuthButtonRow from "../components/OAuthButtonRow";
 import TextButton from '../components/TextButton';
 
 // Safely import expo-router
@@ -56,6 +54,7 @@ function InitialSignUpForm({
         strategy: 'email_code'
       });
       onContinue(emailAddress);
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     } catch (err: any) {
       console.error(JSON.stringify(err, null, 2));
       setErrorMessage(err.errors[0].message);

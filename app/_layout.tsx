@@ -26,7 +26,7 @@ export default function RootLayout() {
   return (
     <ClerkProvider
       tokenCache={tokenCache}
-      publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}
+      publishableKey={"pk_test_b3V0Z29pbmctYmx1ZWpheS05MS5jbGVyay5hY2NvdW50cy5kZXYk"}
     >
       <StatusBar barStyle={"dark-content"}/>
       <RootLayoutAuth />
