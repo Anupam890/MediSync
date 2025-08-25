@@ -53,6 +53,7 @@ const getTargetY = (pos: GradientPosition): number => {
 
 const Gradient = ({ position, isSpeaking }: GradientProps) => {
   const animatedY = useSharedValue(0);
+  const Scale = useSharedValue(1);
   const center = useDeferredValue(vec(visual_config.center.x, animatedY.value));
 
 
